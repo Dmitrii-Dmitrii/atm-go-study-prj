@@ -33,7 +33,7 @@ func (s *AuthorizationService) AuthorizeAccount(ctx context.Context) error {
 	}
 	account, err := s.accountService.FindAccount(ctx, accountNumber, accountPin)
 	if err != nil {
-		fmt.Println("Пошел нахуй!", err)
+		fmt.Println("Error", err)
 		return err
 	}
 	s.manager.SetAccount(account)
@@ -56,7 +56,7 @@ func (s *AuthorizationService) AuthorizeAdmin(ctx context.Context) error {
 
 	err = s.adminService.FindAdmin(ctx, adminNumber, adminPassword)
 	if err != nil {
-		fmt.Println("Пошел нахуй!", err)
+		fmt.Println("Error", err)
 		return err
 	}
 	return nil
